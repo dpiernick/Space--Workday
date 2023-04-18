@@ -14,6 +14,8 @@
 		555B6BE529EF4FD60000C7CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555B6BE329EF4FD60000C7CF /* LaunchScreen.storyboard */; };
 		555B6BF029EF4FD60000C7CF /* Space_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555B6BEF29EF4FD60000C7CF /* Space_Tests.swift */; };
 		555B6C0B29EF516B0000C7CF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555B6C0A29EF516B0000C7CF /* SearchViewController.swift */; };
+		555B6C0F29EF54D10000C7CF /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555B6C0E29EF54D10000C7CF /* StarView.swift */; };
+		555B6C1129EF60DB0000C7CF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555B6C1029EF60DB0000C7CF /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 		555B6BEB29EF4FD60000C7CF /* Space!Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Space!Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		555B6BEF29EF4FD60000C7CF /* Space_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space_Tests.swift; sourceTree = "<group>"; };
 		555B6C0A29EF516B0000C7CF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		555B6C0E29EF54D10000C7CF /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
+		555B6C1029EF60DB0000C7CF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				555B6C0A29EF516B0000C7CF /* SearchViewController.swift */,
+				555B6C0E29EF54D10000C7CF /* StarView.swift */,
+				555B6C1029EF60DB0000C7CF /* SearchViewModel.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -215,7 +221,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				555B6C0B29EF516B0000C7CF /* SearchViewController.swift in Sources */,
+				555B6C1129EF60DB0000C7CF /* SearchViewModel.swift in Sources */,
 				555B6BD929EF4FD50000C7CF /* AppDelegate.swift in Sources */,
+				555B6C0F29EF54D10000C7CF /* StarView.swift in Sources */,
 				555B6BDB29EF4FD50000C7CF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +393,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -415,6 +424,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
