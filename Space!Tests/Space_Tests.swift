@@ -17,20 +17,74 @@ final class Space_Tests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testShouldFetchWithTermAndLessThan100AndMoreItems() {
+        let vm = ResultsViewModel(searchTerm: "moon")
+        XCTAssertTrue(vm.shouldFetch())
+    }
+    
+    func testShouldFetchNoTermAndLessThan100AndMoreItems() {
+        let vm = ResultsViewModel(searchTerm: "")
+        XCTAssertFalse(vm.shouldFetch())
+    }
+    
+    func testShouldFetchWithTermAndLessThan100AndNoMoreItems() {
+        let vm = ResultsViewModel(searchTerm: "moon")
+        vm.totalItems = vm.items.count
+        XCTAssertFalse(vm.shouldFetch())
+    }
+    
+    func testShouldFetchNoTermAnd99PagesAndMoreItems() {
+        let vm = ResultsViewModel(searchTerm: "moon")
+        vm.pageToFetch = 99
+        XCTAssertTrue(vm.shouldFetch())
+    }
+    
+    func testShouldFetchNoTermAnd100PagesAndMoreItems() {
+        let vm = ResultsViewModel(searchTerm: "moon")
+        vm.pageToFetch = 100
+        XCTAssertTrue(vm.shouldFetch())
+    }
+    
+    func testShouldFetchNoTermAnd101PagesAndMoreItems() {
+        let vm = ResultsViewModel(searchTerm: "moon")
+        vm.pageToFetch = 101
+        XCTAssertFalse(vm.shouldFetch())
+    }
+    
+    func testURLwithValidTerm() {
+        let vm = ResultsViewModel(searchTerm: "moon")
+        XCTAssertNotNil(vm.encodedURL())
+    }
+    
+    func testURLPercentEncoding() {
+        let vm = ResultsViewModel(searchTerm: " ")
+        XCTAssertNotNil(vm.encodedURL())
+    }
+    
+    func testURLBlankSearchTerm() {
+        let vm = ResultsViewModel(searchTerm: "")
+        XCTAssertNotNil(vm.encodedURL())
+    }
+    
+    func testFetchResults() {
+        let vm = ResultsViewModel(searchTerm: "moon")
+        Task {
+            await vm.fetchNextPage()
+            XCTAssertTrue(vm.items.count > 0)
+        }
+    }
+    
+    func testTableViewResults() async {
+        let vc = await ResultsViewController(searchTerm: "moon")
+        _ = await vc.view
+        await vc.viewModel.fetchNextPage()
+        let cells = await vc.tableView.visibleCells
+        XCTAssertTrue(cells.count > 0)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testSearchBarActive() {
+        
     }
 
 }

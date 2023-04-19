@@ -19,6 +19,8 @@ class SearchViewController: UIViewController {
     var searchBarActiveTopPadding: CGFloat = 16
     let searchBarSidePadding: CGFloat = 24
     
+    let imageHeight: CGFloat = 150
+    
     override func viewDidLoad() {
         view.backgroundColor = .black
         searchBar.delegate = self
@@ -63,15 +65,17 @@ class SearchViewController: UIViewController {
             label.centerYAnchor.constraint(equalTo: logoView.centerYAnchor)
         ])
         
-        let imageView = UIImageView(image: UIImage(systemName: "moon.stars.fill")!)
+        let imageView = UIImageView(image: UIImage(named: "saturn")!)
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .systemMint
         logoView.addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: logoView.centerXAnchor),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             imageView.bottomAnchor.constraint(equalTo: label.topAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 200),
-            imageView.heightAnchor.constraint(equalToConstant: 200)
+            imageView.heightAnchor.constraint(equalToConstant: imageHeight)
         ])
     }
     

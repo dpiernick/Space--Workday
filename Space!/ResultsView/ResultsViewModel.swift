@@ -38,10 +38,21 @@ class ResultsViewModel: ObservableObject {
         Task { await fetchNextPage() }
     }
     
+    func shouldFetch() -> Bool {
+        return searchTerm != "" && pageToFetch <= 100 && items.count < totalItems
+    }
+    
+    func encodedURL() -> URL? {
+        if let encodedTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+           let url = URL(string: "https://images-api.nasa.gov/search?q=\(encodedTerm)&media_type=image&page=\(pageToFetch)") {
+            return url
+        } else {
+            return nil
+        }
+    }
+    
     func fetchNextPage() async {
-        guard pageToFetch <= 100 && items.count < totalItems,
-              let encodedTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: .alphanumerics),
-              let url = URL(string: "https://images-api.nasa.gov/search?q=\(encodedTerm)&media_type=image&page=\(pageToFetch)") else { return }
+        guard shouldFetch(), let url = encodedURL() else { return }
         
         fetching = true
         do {
