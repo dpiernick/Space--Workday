@@ -34,7 +34,6 @@ class StarView: UIView {
             } completion: { _ in
                 self.pulse()
             }
-
         }
     }
 }

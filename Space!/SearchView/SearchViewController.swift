@@ -18,11 +18,11 @@ class SearchViewController: UIViewController {
     var searchBarActiveTopAnchor = NSLayoutConstraint()
     var searchBarActiveTopPadding: CGFloat = 16
     let searchBarSidePadding: CGFloat = 24
-
     
     override func viewDidLoad() {
         view.backgroundColor = .black
         searchBar.delegate = self
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissSearchKeyboard))
         view.addGestureRecognizer(tap)
         
@@ -96,23 +96,29 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBarIdleTopAnchor.isActive = false
+        self.searchBarActiveTopAnchor.isActive = true
         UIView.animate(withDuration: 0.3) {
-            self.searchBarIdleTopAnchor.isActive = false
-            self.searchBarActiveTopAnchor.isActive = true
             self.view.layoutIfNeeded()
         }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.searchBarActiveTopAnchor.isActive = false
+        self.searchBarIdleTopAnchor.isActive = true
         UIView.animate(withDuration: 0.3) {
-            self.searchBarIdleTopAnchor.isActive = true
-            self.searchBarActiveTopAnchor.isActive = false
             self.view.layoutIfNeeded()
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("search")
+        guard let searchTerm = searchBar.text else {
+            return
+        }
+        
         searchBar.resignFirstResponder()
+        let vc = ResultsViewController(searchTerm: searchTerm)
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
