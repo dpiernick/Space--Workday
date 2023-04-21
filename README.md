@@ -2,7 +2,7 @@
 
 Hi! Thanks for checking out my "Space!" project!
 
-I've left some notes on my approach to building this project as well as how to run it below. Looking forward to hearing what you think!
+I've left some notes below on my approach to building this project as well as how to run it. Looking forward to hearing what you think!
 
 Thanks,
 
