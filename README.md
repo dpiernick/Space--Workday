@@ -9,7 +9,7 @@ Thanks,
 Dave
 
 
-## Notes on Development and Architechture
+## Notes on Development and Architecture
 - I built the search view and results table in UIKit, and the results cells and detail view in SwiftUI.
 - I used async/await wherever possible. I love how it reads as if synchronous code and I feel it's more straightforward to test
 - I used MVVM Architecture Pattern to keep UI and Functionality separate
