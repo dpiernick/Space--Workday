@@ -24,7 +24,7 @@ Please let me know what you think!
 4. Choose where to save the project
 5. Click "Run"!
  - OR
-1. Download "SpaceWorkdayZip" that was either submitted in HackerRank or from the link I emailed you
+1. Download "Space!.zip" from either the file submitted via HackerRank or through https://drive.google.com/file/d/1erfeoTZ9qukWtP0mNU9xsubvqW24Jv4K/view?usp=sharing
 2. Unzip the file
 3. Open the unzipped file in Xcode
 4. Click "Run"!
