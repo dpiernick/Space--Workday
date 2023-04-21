@@ -23,7 +23,7 @@ Please let me know what you think!
 4. Choose where to save the project
 5. Click "Run"!
  - OR
-1. Download "Space!.zip" from either the file submitted via HackerRank or through https://drive.google.com/file/d/1vlpSb97XpzCrsnxfBxzSjNXVWjcfUrBq/view?usp=sharing
+1. Download "Space!.zip" from either the file submitted via HackerRank or through https://drive.google.com/file/d/1MQjjeHY8ARteGQ3f1KSXMzlDkIPHqQKA/view?usp=sharing
 2. Unzip the file
 3. Open the unzipped file in Xcode
 4. Click "Run"!
