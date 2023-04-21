@@ -10,11 +10,10 @@ Dave
 
 
 ## Notes on Development and Architechture
-I built the search view and results table in UIKit, and the results cells and detail view in SwiftUI.
-I used async/await wherever possible. I love how it reads as if synchronous code and I feel it's more straightforward to test
-I used MVVM Architecture Pattern to keep UI and Functionality separate
-It seems like I'm getting a few strange messages in the console.
-Given more time I’d investigate the cause and get those to stop displaying, but no current issues with functionality
+- I built the search view and results table in UIKit, and the results cells and detail view in SwiftUI.
+- I used async/await wherever possible. I love how it reads as if synchronous code and I feel it's more straightforward to test
+- I used MVVM Architecture Pattern to keep UI and Functionality separate
+- It seems like I'm getting a few strange messages in the console.Given more time I’d investigate the cause and get those to stop displaying, but no current issues with functionality
 Please let me know what you think!
 
 ## Steps to run the app
@@ -24,7 +23,7 @@ Please let me know what you think!
 4. Choose where to save the project
 5. Click "Run"!
  - OR
-1. Download "Space!.zip" from either the file submitted via HackerRank or through https://drive.google.com/file/d/1erfeoTZ9qukWtP0mNU9xsubvqW24Jv4K/view?usp=sharing
+1. Download "Space!.zip" from either the file submitted via HackerRank or through https://drive.google.com/file/d/1vlpSb97XpzCrsnxfBxzSjNXVWjcfUrBq/view?usp=sharing
 2. Unzip the file
 3. Open the unzipped file in Xcode
 4. Click "Run"!
