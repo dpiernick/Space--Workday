@@ -28,6 +28,7 @@ struct Link: Codable, Hashable {
 struct ItemData: Codable, Hashable {
     var title: String?
     var description: String?
+    var date_created: String?
 }
 
 struct MetaData: Codable {

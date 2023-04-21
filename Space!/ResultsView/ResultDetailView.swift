@@ -9,9 +9,8 @@ import SwiftUI
 
 struct ResultDetailView: View {
     var item: Item
-    var imageURL: URL {
-        return URL(string: item.links?.first?.href ?? "https://example.com/icon.png")!
-    }
+    var imageURL: URL { return URL(string: item.links?.first?.href ?? "https://example.com/icon.png")! }
+    var dateString: String? { return Date.dateFromString(item.data?.first?.date_created ?? "")?.formatted(date: .abbreviated, time: .omitted) }
     
     var body: some View {
         ZStack {
@@ -27,22 +26,26 @@ struct ResultDetailView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .foregroundColor(.gray)
-                        .padding()
+                            .padding()
                         ProgressView()
                             .scaleEffect(4)
                     }
                 }
-                .padding()
                 
-                Text(item.data?.first?.description ?? "--")
+                Text(item.data?.first?.description ?? "")
                     .padding()
-                    .font(.system(size: 20, weight: .medium, design: .rounded))
+                    .font(.system(size: 24, weight: .medium, design: .rounded))
                     .foregroundColor(.white)
+                
+                if let dateString = dateString {
+                    Text("Date created: \(dateString)")
+                        .foregroundColor(.gray)
+                }
                 
                 Spacer()
             }
-            .preferredColorScheme(.dark)
         }
+        .preferredColorScheme(.dark)
     }
 }
 
